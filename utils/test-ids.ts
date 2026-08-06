@@ -1,0 +1,1 @@
+export const testIds = { dashboard: 'AT-001–AT-010', creation: 'AT-011–AT-015', validation: 'AT-016–AT-021', sorting: 'AT-022–AT-029', workflow: 'AT-030–AT-036', errors: 'AT-037–AT-040', responsive: 'AT-041–AT-042' } as const;

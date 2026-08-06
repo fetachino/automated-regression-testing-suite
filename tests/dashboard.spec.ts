@@ -1,0 +1,12 @@
+import { test, expect } from '../fixtures/app-fixture';
+import { createTicketData } from '../utils/data-factory';
+test.describe('@regression Dashboard and filters',()=>{
+  test.beforeEach(async({dashboard})=>dashboard.open());
+  test('AT-004 Search by exact title returns matching ticket',async({dashboard,createTicket})=>{const d=createTicketData('HIGH');await createTicket.open();await createTicket.fill(d);await createTicket.submit();await dashboard.open();await dashboard.searchTickets(d.title);await dashboard.applyFilters();expect((await dashboard.visibleRows()).map(r=>r.title)).toEqual([d.title]);});
+  test('AT-005 Search is case-insensitive',async({dashboard})=>{const first=(await dashboard.visibleRows())[0];test.skip(!first,'Requires at least one ticket');await dashboard.searchTickets(first!.title.toLowerCase());await dashboard.applyFilters();expect((await dashboard.visibleRows()).some(r=>r.title===first!.title)).toBeTruthy();});
+  test('AT-006 Priority filter returns expected tickets',async({dashboard})=>{await dashboard.selectPriority('HIGH');await dashboard.applyFilters();expect((await dashboard.visibleRows()).every(r=>r.priority==='HIGH')).toBeTruthy();});
+  test('AT-007 Status filter returns expected tickets',async({dashboard})=>{await dashboard.selectStatus('RESOLVED');await dashboard.applyFilters();expect((await dashboard.visibleRows()).every(r=>r.status==='RESOLVED')).toBeTruthy();});
+  test('AT-008 Combined title, priority, and status filtering works',async({dashboard,createTicket})=>{const d=createTicketData('LOW');await createTicket.open();await createTicket.fill(d);await createTicket.submit();await dashboard.open();await dashboard.searchTickets(d.title);await dashboard.selectPriority('LOW');await dashboard.selectStatus('OPEN');await dashboard.applyFilters();expect((await dashboard.visibleRows()).map(r=>r.title)).toEqual([d.title]);});
+  test('AT-009 Clear filters restores the default queue',async({dashboard})=>{await dashboard.searchTickets('definitely-no-match');await dashboard.applyFilters();await dashboard.clearFilters();await expect(dashboard.queue).toBeVisible();expect(new URL(await dashboard['page'].url()).search).toBe('');});
+  test('AT-010 Empty-state message appears when no ticket matches',async({dashboard})=>{await dashboard.searchTickets(`no-match-${Date.now()}`);await dashboard.applyFilters();await expect(dashboard.emptyState()).toBeVisible();});
+});
