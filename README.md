@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # application-regression-automation
 
 [![Playwright regression](https://github.com/OWNER/application-regression-automation/actions/workflows/playwright.yml/badge.svg)](https://github.com/OWNER/application-regression-automation/actions/workflows/playwright.yml)
@@ -67,3 +68,7 @@ On push and pull request, Actions checks out both repositories, configures Temur
 Unique timestamped titles prevent collisions; tests do not depend on seed IDs. With no cleanup API, records live until H2 restarts. The application has no test IDs, page input, or UI path past maxlength boundaries. Required-field validation is server-side because the form intentionally has `novalidate`; AT-016–018 assert the returned field errors and verify that no row is inserted. Roadmap: API-level boundary tests, deterministic cleanup, Firefox/WebKit projects, accessibility scans, and safe parallelization after isolated data support.
 
 Windows-specific commands are in [local setup](docs/local-environment-setup.md); defect evidence can use [the defect template](docs/defect-report-template.md).
+=======
+# automated-regression-testing-suite
+Professional Playwright and TypeScript regression automation framework for a Spring Boot application using the Page Object Model, GitHub Actions, and Allure reporting.
+>>>>>>> af6ce8f484b937a24791b3793b4d30a59745542a
