@@ -20,6 +20,15 @@ Page objects own navigation and selector logic; typed fixtures inject them into 
 
 The 42 IDs cover smoke (AT-001–003), dashboard/filtering (004–010), creation (011–015), validation (016–021), sorting/pagination (022–029), details/workflow (030–036), errors (037–040), and responsive behavior (041–042). Browser-impossible boundary cases and absent pagination controls are honestly skipped. See [the traceability matrix](docs/regression-suite.md), [automation strategy](docs/automation-strategy.md), and [selector policy](docs/selector-strategy.md).
 
+## Visual evidence
+
+| Playwright HTML report | Server-side validation test |
+|---|---|
+| The report provides test IDs, tags, browser coverage, timing, and pass/skip status. | AT-016 verifies that a missing title displays the expected validation feedback and does not create a ticket. |
+| ![Playwright HTML regression report](docs/images/playwright-html-report.png) | ![Required-title validation evidence](docs/images/validation-required-title.png) |
+
+HTML and Allure reports are generated locally and in CI. Generated report folders remain untracked; CI publishes the HTML report, Allure results, and failure evidence as downloadable workflow artifacts.
+
 ## Structure
 
 `config/` contains runtime settings; `data/` and `utils/` own test data; `fixtures/` wires reusable page objects; `pages/` contains the Page Object Model; `tests/` contains specs; `docs/` contains strategy and operational guidance; `.github/workflows/` owns CI.
