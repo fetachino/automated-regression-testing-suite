@@ -22,10 +22,11 @@ jobs:
         with:
           node-version: 22
           cache: npm
-      - name: Install automation dependencies and Chromium
-        run: |
-          npm ci
-          npx playwright install --with-deps chromium
+      - name: Install automation dependencies
+        run: npm ci
+      - name: Install Chromium
+        shell: bash
+        run: timeout 8m npx playwright install chromium
       - name: Build and start Spring Boot application
         working-directory: java-application-support-lab
         run: |
