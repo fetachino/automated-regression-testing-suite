@@ -1,8 +1,23 @@
-# application-regression-automation
+# Automated Regression Testing Suite
 
 [![Playwright regression](https://github.com/fetachino/automated-regression-testing-suite/actions/workflows/playwright.yml/badge.svg)](https://github.com/fetachino/automated-regression-testing-suite/actions/workflows/playwright.yml)
+[![TypeScript](https://img.shields.io/badge/TypeScript-3178C6?logo=typescript&logoColor=white)](https://www.typescriptlang.org/)
+[![Playwright](https://img.shields.io/badge/Playwright-2EAD33?logo=playwright&logoColor=white)](https://playwright.dev/)
+[![Node.js](https://img.shields.io/badge/Node.js-339933?logo=nodedotjs&logoColor=white)](https://nodejs.org/)
+[![GitHub Actions](https://img.shields.io/badge/GitHub_Actions-2088FF?logo=githubactions&logoColor=white)](https://docs.github.com/en/actions)
 
 A standalone, portfolio-grade TypeScript/Playwright regression framework for [java-application-support-lab](https://github.com/fetachino/java-application-support-lab). It demonstrates practical QA automation, application-support diagnostics, maintainable test architecture, and CI evidence collection without modifying the Java application.
+
+## What this proves
+
+- Maintainable browser automation with Page Objects, typed fixtures, and
+  deterministic test-data factories
+- Traceable QA coverage across smoke, workflows, validation, errors, and
+  responsive behavior
+- Actionable failure evidence through screenshots, video, traces, HTML, and
+  Allure reports
+- CI delivery that starts the companion Spring Boot application, runs checks,
+  publishes artifacts, and cleans up reliably
 
 ## Architecture
 
