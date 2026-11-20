@@ -8,6 +8,16 @@
 
 A standalone, portfolio-grade TypeScript/Playwright regression framework for [java-application-support-lab](https://github.com/fetachino/java-application-support-lab). It demonstrates practical QA automation, application-support diagnostics, maintainable test architecture, and CI evidence collection without modifying the Java application.
 
+## Why this is relevant to junior QA roles
+
+This project is designed to show the work a junior QA tester would discuss in an interview:
+
+- translate application behavior into traceable test scenarios;
+- execute smoke, functional, regression, validation, usability, and responsive checks;
+- document defects with reproducible evidence and verify fixes;
+- collaborate with an application under test instead of testing isolated mock code;
+- publish repeatable results through CI artifacts and reports.
+
 ## What this proves
 
 - Maintainable browser automation with Page Objects, typed fixtures, and
